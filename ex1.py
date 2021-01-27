@@ -1,8 +1,13 @@
+#packages imported for use
+
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
 import datetime
 import wikipedia
+
+# listener class created to listen the commands
+# initialising of on signal command "i am your assistant"
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -10,12 +15,15 @@ engine.say('i am your assistant')
 engine.say('what can i do')
 engine.runAndWait()
 
+# main function block starts here
+
 def talk(text):
     engine.say(text)
     engine.runAndWait()
-a=10
-b=0
-while a!=b:
+  
+# Checking for any exceptions here if any  
+
+while True:
 
     try:
         with sr.Microphone() as source:
@@ -25,6 +33,9 @@ while a!=b:
             print(command)
     except:
         pass
+    
+    
+    #checking for the command given by the user and executing it
 
     if 'play' in command:
          song = command.replace('play','')
